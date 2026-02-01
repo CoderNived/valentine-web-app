@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating hearts background animation -->
+    <div class="hearts-background" id="heartsBackground"></div>
+    
+    <!-- Main question card -->
+    <div class="card" id="questionCard">
+        <h1 class="question">Will you be my Valentine? 💖</h1>
+        <p class="message" id="message">Choose wisely... 😊</p>
+        
+        <div class="buttons-container">
+            <button class="btn btn-yes" id="yesBtn">
+                💘 Yes
+            </button>
+            <button class="btn btn-no" id="noBtn">
+                💔 No
+            </button>
+        </div>
+    </div>
+    
+    <!-- Celebration screen (hidden initially) -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <h1 class="celebration-title">YAY!!! ❤️</h1>
+            <p class="celebration-message">You made me the happiest person!</p>
+            <div class="heart-pulse">💖</div>
+        </div>
+        
+        <!-- Confetti container -->
+        <div class="confetti-container" id="confettiContainer"></div>
+        
+        <!-- Floating hearts for celebration -->
+        <div class="celebration-hearts" id="celebrationHearts"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

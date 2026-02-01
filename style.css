@@ -1,0 +1,353 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffc3a0 50%, #ff9a9e 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating hearts background */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main card styling */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.question {
+    font-size: 2.5em;
+    color: #ff4757;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Buttons container */
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Button base styles */
+.btn {
+    padding: 15px 40px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Yes button */
+.btn-yes {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    color: white;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.btn-yes:hover {
+    background: linear-gradient(135deg, #ff5252, #ff3838);
+    animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) translateY(-3px); }
+    25% { transform: rotate(-5deg) translateY(-3px); }
+    75% { transform: rotate(5deg) translateY(-3px); }
+}
+
+/* No button */
+.btn-no {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: white;
+}
+
+.btn-no:hover {
+    background: linear-gradient(135deg, #7f8c8d, #6c7a7b);
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0) translateY(-3px); }
+    25% { transform: translateX(-5px) translateY(-3px); }
+    75% { transform: translateX(5px) translateY(-3px); }
+}
+
+/* Celebration screen */
+.celebration {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffc3a0 50%, #ff9a9e 100%);
+    z-index: 100;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.celebration.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.celebration-content {
+    text-align: center;
+    z-index: 101;
+    animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.celebration-title {
+    font-size: 4em;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #ff6b9d; }
+    25% { color: #ffc3a0; }
+    50% { color: #ff9a9e; }
+    75% { color: #ffafbd; }
+    100% { color: #ff6b9d; }
+}
+
+.celebration-message {
+    font-size: 1.8em;
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.heart-pulse {
+    font-size: 6em;
+    animation: heartbeat 1s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.2);
+    }
+    20%, 40% {
+        transform: scale(1.1);
+    }
+}
+
+/* Confetti */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b9d;
+    top: -10px;
+    animation: confettiFall 3s linear;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Celebration hearts */
+.celebration-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.celebration-heart {
+    position: absolute;
+    font-size: 30px;
+    animation: floatUpFast 4s linear;
+    opacity: 0;
+}
+
+@keyframes floatUpFast {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) rotate(45deg) scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .card {
+        padding: 40px 30px;
+    }
+    
+    .question {
+        font-size: 2em;
+    }
+    
+    .message {
+        font-size: 1em;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+    
+    .celebration-title {
+        font-size: 3em;
+    }
+    
+    .celebration-message {
+        font-size: 1.4em;
+    }
+    
+    .heart-pulse {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 400px) {
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
